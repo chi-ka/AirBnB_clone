@@ -64,10 +64,12 @@ class HBNBCommand(Cmd):
         class_id = args[1]
 
         check = storage.all()
-        for key, obj in check.items():
-            class_name, obj_id = key.split('.')
-            if class_name == class_ and class_id == obj_id:
-                print(obj)
+        check = storage.all()
+        key = f"{class_}.{class_id}"
+        if key in check.keys():
+            print(check[key])
+        else:
+            print("** no instance found **")
 
     def do_all(self, args):
         '''Prints all string representation of all instances
