@@ -8,7 +8,6 @@ from models import storage
 class BaseModel():
     '''The base model of other creationa'''
 
-
     def __init__(self, *args, **kwargs):
         '''initializing the base model and it's attributes'''
 
@@ -18,7 +17,8 @@ class BaseModel():
                     continue
                 elif key in ['created_at', 'updated_at']:
                     if isinstance(value, str):
-                        setattr(self, key, dt.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                        setattr(self, key, dt.strptime(value,
+                                "%Y-%m-%dT%H:%M:%S.%f"))
                     else:
                         setattr(self, key, value)
                 else:
@@ -29,7 +29,6 @@ class BaseModel():
             self.updated_at = dt.now()
             storage.new(self)
 
-
     def save(self):
         '''updates the public instance attribute updated_at
         with the current datetime'''
@@ -39,7 +38,8 @@ class BaseModel():
     def __str__(self):
         '''prints [<class name>] (<self.id>) <self.__dict__>'''
 
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        tmpclass = self.__class__.__name__
+        return "[{}] ({}) {}".format(tmpclass, self.id, self.__dict__)
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__
@@ -47,7 +47,13 @@ class BaseModel():
 
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
-        obj_dict['created_at'] = self.created_at.isoformat() if isinstance(self.created_at, dt) else None
-        obj_dict['updated_at'] = self.updated_at.isoformat() if isinstance(self.updated_at, dt) else None
+        if isinstance(self.created_at, dt):
+            obj_dict['created_at'] = self.created_at.isoformat()
+        else:
+            None
+        if isinstance(self.updated_at, dt):
+            obj_dict['updated_at'] = self.updated_at.isoformat()
+        else:
+            None
 
         return obj_dict
