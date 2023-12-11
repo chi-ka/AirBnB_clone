@@ -3,6 +3,6 @@
 
 from models.engine import FileStorage
 
-__all__ = ['BaseModel']
+__all__ = ['BaseModel', 'User']
 storage = FileStorage()
 storage.reload()

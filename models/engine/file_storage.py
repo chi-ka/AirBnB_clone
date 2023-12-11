@@ -46,7 +46,10 @@ class FileStorage():
                     data = {}
                 for key, obj_dict in data.items():
                     class_name, obj_id = key.split('.')
-                    module_name = f"models.base_model"
+                    if class_name == 'BaseModel':
+                        module_name = f"models.base_model"
+                    if class_name == 'User':
+                        module_name = f"models.user"
                     module = importlib.import_module(module_name)
                     class_ = getattr(module, class_name)
                     obj_instance = class_(**obj_dict)
