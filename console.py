@@ -8,13 +8,17 @@ from cmd import Cmd
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
-
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.amenity import Amenity
 
 class HBNBCommand(Cmd):
     '''The Command Line Class'''
 
     Cmd.prompt = "(hbnb)"
-    classes = classes = ["BaseModel", "User"]
+    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
     def do_EOF(self, line):
         '''implement quit and EOF to exit the program'''
@@ -44,6 +48,16 @@ class HBNBCommand(Cmd):
             my_model = User()
         elif class_name == "BaseModel":
             my_model = BaseModel()
+        elif class_name == "State":
+            my_model = State()
+        elif class_name == "Amenity":
+            my_model = Amenity()
+        elif class_name == "City":
+            my_model = City()
+        elif class_name == "Place":
+            my_model = Place()
+        elif class_name == "Review":
+            my_model = Review()
         my_model.save()
         print(my_model.id)
 

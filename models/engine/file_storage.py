@@ -50,6 +50,16 @@ class FileStorage():
                         module_name = f"models.base_model"
                     if class_name == 'User':
                         module_name = f"models.user"
+                    if class_name == 'State':
+                        module_name = f"models.state"
+                    if class_name == 'City':
+                        module_name = f"models.city"
+                    if class_name == 'Amenity':
+                        module_name = f"models.amenity"
+                    if class_name == 'Place':
+                        module_name = f"models.place"
+                    if class_name == 'Review':
+                        module_name = f"models.review"
                     module = importlib.import_module(module_name)
                     class_ = getattr(module, class_name)
                     obj_instance = class_(**obj_dict)
