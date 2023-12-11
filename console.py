@@ -7,6 +7,7 @@ point of the command interpreter:
 from cmd import Cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(Cmd):
@@ -39,7 +40,10 @@ class HBNBCommand(Cmd):
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        my_model = f"{class_name}()"
+        if class_name == "User":
+            my_model = User()
+        elif class_name == "BaseModel":
+            my_model = BaseModel()
         my_model.save()
         print(my_model.id)
 
