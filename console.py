@@ -13,6 +13,7 @@ class HBNBCommand(Cmd):
     '''The Command Line Class'''
 
     Cmd.prompt = "(hbnb)"
+    classes = classes = ["BaseModel", "User"]
 
     def do_EOF(self, line):
         '''implement quit and EOF to exit the program'''
@@ -35,11 +36,10 @@ class HBNBCommand(Cmd):
             return
 
         class_name = args[0]
-        if class_name != 'BaseModel':
+        if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-
-        my_model = BaseModel()
+        my_model = f"{class_name}()"
         my_model.save()
         print(my_model.id)
 
@@ -53,7 +53,7 @@ class HBNBCommand(Cmd):
             return
 
         class_ = args[0]
-        if class_ != 'BaseModel':
+        if class_ not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
@@ -81,7 +81,7 @@ class HBNBCommand(Cmd):
             return
 
         class_ = args[0]
-        if class_ != 'BaseModel':
+        if class_ not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
@@ -98,7 +98,7 @@ class HBNBCommand(Cmd):
             return
 
         class_ = args[0]
-        if class_ != 'BaseModel':
+        if class_ not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
@@ -124,7 +124,7 @@ class HBNBCommand(Cmd):
             return
 
         class_name = args[0]
-        if class_name != 'BaseModel':
+        if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
