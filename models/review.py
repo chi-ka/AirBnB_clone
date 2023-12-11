@@ -4,7 +4,7 @@
 from models.base_model import BaseModel
 
 
-class Amenity(BaseModel):
+class Review(BaseModel):
     '''BaseModel SubClass Named State'''
 
     place_id = ""
