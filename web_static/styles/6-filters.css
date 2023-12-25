@@ -1,0 +1,82 @@
+.filters{
+  color: black;
+  height: 70px;
+  width: 100%;
+  border-radius: 4px;
+  border:  1px solid #DDDDDD;
+
+}
+
+.Locations,
+.Amenities{
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+  position: relative;
+  margin-left: 30px;
+  border-right: 1px solid #DDDDDD;
+}
+
+.Locations h3,
+.Amenities h3{
+  font-weight: 600;
+  line-height: 0px;
+  padding-top: 10px;
+}
+
+.Locations h4,
+.Amenities h4{
+  line-height: 0px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.Locations .popover,
+.Amenities .popover{
+  width: 100%;
+  display: none;
+  right: 0px;
+  list-style: none;
+  margin-left: 2px;
+  position:absolute;
+  border-radius: 4px;
+  border:  1px solid #DDDDDD;
+  background-color: #FAFAFA;
+}
+
+.Locations:hover .popover,
+.Amenities:hover .popover {
+  display: block;
+}
+
+.popover h2{
+  font-size: 16px;
+}
+
+.popover ul{
+  list-style:none;
+  padding: 6px 0 6px 0;
+}
+
+.popover li {
+  margin: auto;
+  list-style: none;
+
+.search-button{
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    position: absolute;
+    right: 30px;
+    margin-top: 11px;
+    cursor: pointer;
+  }
+
+.search-button:hover {
+  opacity: 0.9;
+}
+
